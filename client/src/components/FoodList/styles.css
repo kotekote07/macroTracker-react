@@ -1,0 +1,31 @@
+.container {
+    width: 70%;
+    margin: 20px auto;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: white;
+}
+
+.food-table {
+    width: 240px;
+    margin-left: 20px;
+}
+
+.food-table td {
+    width: 50px;
+}
+
+.delete-form {
+    text-align: center;
+}
+
+.delete-btn {
+    display: none;
+    margin-top: 5px;
+}
+
+.spacer {
+    height: 200px;
+    width: 30px;
+}

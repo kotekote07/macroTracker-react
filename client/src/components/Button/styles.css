@@ -1,0 +1,34 @@
+.add-button {
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: #1e1e1e;
+    padding-top: 20px;
+}
+
+.add-button button {
+    border-radius: 40%;
+}
+
+#button-list {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    background-color: #1e1e1e;
+    text-align: center;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.new-buttons button {
+    margin: 0px 10px;
+}
+
+.img-button {
+    width: 30px;
+}
+
+.close-button {
+    margin-top: 20px;
+}

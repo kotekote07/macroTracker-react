@@ -1,0 +1,24 @@
+.login-title {
+    text-align: center;
+    margin: 100px auto;
+}
+
+.login-title h2 {
+    color: white;
+}
+
+.login-form {
+    text-align: center;
+}
+
+.login-input {
+    display: block;
+    margin: 20px auto;
+}
+
+.invalid-login {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+}

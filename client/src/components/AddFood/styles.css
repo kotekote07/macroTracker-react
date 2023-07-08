@@ -1,0 +1,22 @@
+.addFood-form {
+    width: 80%;
+    margin: 20px auto;
+    padding: 5px 0px;
+    background-color: gray;
+}
+
+.food-input {
+    display: block;
+    margin: 40px auto;
+    width: 200px;
+    height: 50px;
+}
+
+.food-input-button {
+    display: block;
+    margin: 40px auto;
+    width: 60px;
+    height: 50px;
+    border-radius: 100%;
+    border: 1.5px solid white;
+}

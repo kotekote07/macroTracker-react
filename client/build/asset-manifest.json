@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.74b7cc14.css",
+    "main.js": "/static/js/main.15ee932d.js",
+    "static/media/fork.png": "/static/media/fork.e89e1364abc8dd3d0d05.png",
+    "static/media/past.png": "/static/media/past.0d85fc91119aaaa2bc6f.png",
+    "static/media/weighing-machine.png": "/static/media/weighing-machine.6e994ad3bed6719df1cf.png",
+    "index.html": "/index.html",
+    "main.74b7cc14.css.map": "/static/css/main.74b7cc14.css.map",
+    "main.15ee932d.js.map": "/static/js/main.15ee932d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.74b7cc14.css",
+    "static/js/main.15ee932d.js"
+  ]
+}

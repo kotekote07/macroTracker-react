@@ -1,33 +1,13 @@
 .footer {
-    /* position: fixed; */
-    width: 100%;
-    /* bottom: 0px; */
-    background-color: gray;
-    margin-top: 20px;
-}
-
-.footer-info {
     width: 80%;
-    margin: auto;
-    text-align: center;
+    background-color: gray;
+    height: 30px;
+    margin: 20px auto;
+    border-radius: 10px;
 }
 
 .footer-info p {
     display: inline-block;
-    width: 30px;
-    margin-right: 10px;
-
-}
-
-.cal-footer {
-    text-align: center;
-}
-
-.cal-footer p {
-    display: inline;
-    margin-right: 10px;
-}
-
-#prot-footer {
-    width: 45px;
+    width: 40px;
+    margin: 0px 10px;
 }

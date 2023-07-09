@@ -39,7 +39,9 @@ app.route("/user")
 
 app.route("/login")
     .post((req, res) => {
-        User.findOne({username: req.body.username, password: req.body.password}).then((users) => {
+        let username = req.body.username;
+        username = username.toLowerCase();
+        User.findOne({username: username, password: req.body.password}).then((users) => {
             if (users) {
                 currentUser = users.id;
                 currentName = users.username;
@@ -99,7 +101,7 @@ app.route("/food")
 app.post("/deleteFood", (req, res) => {
         const foodId = req.body.id;
         Food.findByIdAndRemove(foodId).then((err) => {
-            console.log("deleted " + foodId)
+            res.send("deleted")
         })
     });
 
@@ -116,7 +118,7 @@ app.route("/previous-food")
     .post((req, res) => {
         const foodId = req.body.id;
         PrevFood.findByIdAndRemove(foodId).then((err) => {
-            console.log("deleted " + foodId);
+            res.send("deleted")
         })
     })
 
@@ -136,6 +138,7 @@ app.post("/add-from-previous", (req, res) => {
 
     try {
         food.save();
+        res.send("added")
     } catch (error) {
         console.log("food was unable to be added" + error);
     }

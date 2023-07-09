@@ -11,9 +11,12 @@ function PrevFoods() {
 
     const [prevFoods, setPrevFoods] = useState([]);
 
+    const [count, setCount] = useState(0);
+
     useEffect(() => {
         getFoods();
-    })
+        // eslint-disable-next-line 
+    }, [count])
 
     async function getFoods() {
         try {
@@ -24,21 +27,27 @@ function PrevFoods() {
         }
     }
 
-    const deleteFood = (id) => {
+    const deleteFood = async (id) => {
         let foodID = {
             id: id
         }
-        foodService.removePrevious(foodID);
+        let res = await foodService.removePrevious(foodID);
+        if (res.data === "deleted") {
+            setCount(count + 1);
+        }
     }
 
-    const addFood = (name, carbs, fats, proteins) => {
+    const addFood = async (name, carbs, fats, proteins) => {
         let data = {
             name: name,
             carbs: carbs,
             fats: fats,
             proteins: proteins
         }
-        foodService.addFromPrevious(data)
+        let res = await foodService.addFromPrevious(data)
+        if (res.data === "added") {
+            setCount(count + 1);
+        }
 
         let message = document.getElementById("success-message");
         message.style.display = "block"

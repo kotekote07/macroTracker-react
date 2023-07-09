@@ -7,7 +7,7 @@ import Footer from "../Footer/footer";
 
 import "./styles.css"
 
-const Button = () => {
+const Button = (props) => {
 
     const weight = () => {
         window.location = "/weight";
@@ -27,7 +27,10 @@ const Button = () => {
         if (button.classList.contains("animate__fadeInUp")) {
             button.classList.remove('animate__fadeInUp')
             button.classList.add('animate__fadeOutDown')
-
+            setTimeout(() => {
+                button.style.display = "none"
+            }, 1000);
+            
             add.classList.remove("animate__fadeOut")
             add.classList.add('animate__fadeIn')
             
@@ -57,7 +60,7 @@ const Button = () => {
                     <button onClick={buttonAnimation} id="close" className="btn btn-light">X</button>
                 </div>
             </div>
-        <Footer />
+        <Footer count={props.count}/>
         </div>
     )
 }

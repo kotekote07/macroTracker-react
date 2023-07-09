@@ -32,8 +32,10 @@ const FoodList = () => {
         let foodID = {
             id: id
         }
-        setCount(count + 1)
-        await foodService.removeFood(foodID);
+        const res = await foodService.removeFood(foodID);
+        if(res.data === "deleted") {
+            setCount(count + 1);
+        }
     }
 
     const selectDelete = (data) => {
@@ -78,9 +80,8 @@ const FoodList = () => {
                     </div>
                 )
             })}
-        <Button />
+        <Button count={count}/>
         <div className="spacer"></div>
-        {/* <Footer /> */}
         </div>
         );
 }

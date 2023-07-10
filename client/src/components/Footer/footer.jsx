@@ -23,10 +23,10 @@ const Footer = (props) => {
     return (
         <div id="footer" className="footer animate__animated animate__faster">
             <div className="footer-info">
-                <p>cal{totalFoods.totCalories}</p>
-                <p>c{totalFoods.totCarbs}</p>
-                <p>f{totalFoods.totFats}</p>
-                <p>p{totalFoods.totProteins}</p>
+                <p>{totalFoods.totCalories}</p>
+                <p>{totalFoods.totCarbs}</p>
+                <p>{totalFoods.totFats}</p>
+                <p>{totalFoods.totProteins}</p>
             </div>  
         </div>
     )

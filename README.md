@@ -7,5 +7,6 @@ Easily add back previous foods. Weight tracking coming soon.
 Currently optimized more for mobile devices but will work on desktop too. 
 
 Give it a try here: https://murmuring-citadel-90338-42ba0518069d.herokuapp.com/login
+
 Username: test
 Password: test

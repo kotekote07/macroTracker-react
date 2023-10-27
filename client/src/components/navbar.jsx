@@ -17,9 +17,11 @@ const Navbar = () => {
     setUsername(res.data)
   }
 
+  // update this to async await
   const logout = () => {
     try {
       foodService.logout()
+      localStorage.clear()
     } catch (error) {
       console.log(error)
     }

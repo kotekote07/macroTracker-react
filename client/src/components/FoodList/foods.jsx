@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FoodDataService from "../../services/food";
+import Helper from "../../services/helper";
 
 import "./styles.css"
 
@@ -7,6 +8,10 @@ import Button from "../Button/button";
 import Navbar from "../navbar";
 
 const FoodList = () => {
+
+    const helper = new Helper();
+
+    helper.userCheck();
 
     const foodService = new FoodDataService();
 

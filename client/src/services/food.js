@@ -40,6 +40,10 @@ class FoodDataService {
     logout() {
         return http.get("/logout")
     }
+
+    quickLogin(data) {
+        return http.post("/quicklogin", data)
+    }
 }
 
 export default FoodDataService;

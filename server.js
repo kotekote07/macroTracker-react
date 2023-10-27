@@ -58,6 +58,17 @@ app.get("/logout", (req, res) => {
     currentName = null;
 })
 
+app.post("/quicklogin", (req, res) => {
+    let usernameKey = req.body.username;
+    User.findOne({_id: usernameKey}).then((users) => {
+        if (users) {
+            currentUser = users.id;
+            currentName = users.username
+            res.send(currentUser)
+        }
+    })
+})
+
 app.route("/food")
     .get((req, res) => {
         Food.find({user: currentUser}).then((foods) => {

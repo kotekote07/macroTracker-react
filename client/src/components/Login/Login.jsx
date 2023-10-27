@@ -3,10 +3,14 @@ import React from "react";
 import "./styles.css"
 
 import FoodDataService from "../../services/food";
+import Helper from "../../services/helper";
 
 const Login = () => {
 
     const foodService = new FoodDataService();
+    const helper = new Helper();
+
+    helper.quickLogin()
 
     async function currentUser(e) {
         e.preventDefault()
@@ -18,6 +22,7 @@ const Login = () => {
         let user = await foodService.getUser(data)
         if (user.data !== "") {
             window.location = "/foods"
+            localStorage.setItem('user', user.data);
         } else {
             let message = document.getElementById("invalid-message");
             if (message.style.display === "block") {

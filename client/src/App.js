@@ -10,17 +10,17 @@ import AddFood from "./components/AddFood/AddFood";
 import PrevFoods from "./components/PrevFoods/prevFoods"
 
 function App() {
-  // add something that prevents and redirects if there isn't a current user logged in 
+
   return (
-    <div className="App">
-      <Routes>
-        <Route path={"/"} Component={Login}/>
-        <Route path={"/login"} Component={Login}/>
-        <Route path="/foods" Component={FoodList}/>
-        <Route path="/addFood" Component={AddFood}/>
-        <Route path="/previous-foods" Component={PrevFoods}/>
-      </Routes>
-    </div>
+      <div className="App">
+        <Routes>
+          <Route path={"/"} Component={Login}/>
+          <Route path={"/login"} Component={Login}/>
+          <Route path="/foods" Component={FoodList}/>
+          <Route path="/addFood" Component={AddFood}/>
+          <Route path="/previous-foods" Component={PrevFoods}/>
+        </Routes>
+      </div>
   );
 }
 

@@ -4,10 +4,15 @@ import "./styles.css";
 import FoodDataService from "../../services/food";
 
 import Navbar from "../navbar";
+import Helper from "../../services/helper";
 
 function PrevFoods() {
 
     const foodService = new FoodDataService();
+
+    const helper = new Helper();
+
+    helper.userCheck();
 
     const [prevFoods, setPrevFoods] = useState([]);
 

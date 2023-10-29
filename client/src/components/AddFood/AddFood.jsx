@@ -4,8 +4,13 @@ import "./styles.css";
 import FoodDataService from "../../services/food";
 
 import Navbar from "../navbar";
+import Helper from "../../services/helper";
 
 const AddFood = () => {
+
+    const helper = new Helper();
+
+    helper.userCheck();
 
     const foodService = new FoodDataService();
 

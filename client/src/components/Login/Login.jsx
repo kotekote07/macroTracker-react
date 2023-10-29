@@ -1,4 +1,5 @@
 import React from "react";
+import Cookies from 'universal-cookie';
 
 import "./styles.css"
 
@@ -9,6 +10,7 @@ const Login = () => {
 
     const foodService = new FoodDataService();
     const helper = new Helper();
+    const cookies = new Cookies();
 
     helper.quickLogin()
 
@@ -22,7 +24,7 @@ const Login = () => {
         let user = await foodService.getUser(data)
         if (user.data !== "") {
             window.location = "/foods"
-            localStorage.setItem('user', user.data);
+            cookies.set('user', user.data);
         } else {
             let message = document.getElementById("invalid-message");
             if (message.style.display === "block") {

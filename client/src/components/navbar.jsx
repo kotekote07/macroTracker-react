@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import Cookies from "universal-cookie";
 import FoodDataService from "../services/food";
 
 const Navbar = () => {
 
   const foodService = new FoodDataService();
+
+  const cookies = new Cookies();
 
   const [username, setUsername] = useState([]);
 
@@ -21,7 +24,7 @@ const Navbar = () => {
   const logout = () => {
     try {
       foodService.logout()
-      localStorage.clear()
+      cookies.remove('user')
     } catch (error) {
       console.log(error)
     }

@@ -1,16 +1,21 @@
+import Cookies from 'universal-cookie';
+
 import FoodDataService from "./food";
 const foodService = new FoodDataService();
+const cookies = new Cookies();
+
 class Helper {
     userCheck() {
-        if (localStorage.getItem("user") === null) {
+        console.log(cookies.get('user'))
+        if (cookies.get("user") === undefined) {
             window.location = "/login"
         }
     }
 
     quickLogin() {
-        if (localStorage.getItem("user") !== null) {
+        if (cookies.get("user") !== undefined) {
             let data = {
-                username: localStorage.getItem("user")
+                username: cookies.get("user")
             }
             let confirm = foodService.quickLogin(data)
             if (confirm.data !== "") {

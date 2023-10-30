@@ -46,7 +46,11 @@ class FoodDataService {
     }
 
     updateAmnt(data) {
-        return http.post("update-amnt", data);
+        return http.post("/update-amnt", data);
+    }
+
+    groupFood(data) {
+        return http.post("/groupFood", data);
     }
 }
 

@@ -44,6 +44,10 @@ class FoodDataService {
     quickLogin(data) {
         return http.post("/quicklogin", data)
     }
+
+    updateAmnt(data) {
+        return http.post("update-amnt", data);
+    }
 }
 
 export default FoodDataService;

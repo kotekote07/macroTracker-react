@@ -6,7 +6,6 @@ const cookies = new Cookies();
 
 class Helper {
     userCheck() {
-        console.log(cookies.get('user'))
         if (cookies.get("user") === undefined) {
             window.location = "/login"
         }

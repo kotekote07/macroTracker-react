@@ -25,6 +25,18 @@
     margin-top: 5px;
 }
 
+.increase-btn {
+    display: none;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.subtract-btn {
+    display: none;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
 .spacer {
     height: 200px;
     width: 30px;

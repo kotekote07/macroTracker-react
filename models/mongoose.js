@@ -7,7 +7,8 @@ const foodSchema = {
     fats: Number,
     proteins: Number,
     user: String,
-    date: Date
+    date: Date,
+    amount: Number
 };
 
 const PrevFoodSchema = {

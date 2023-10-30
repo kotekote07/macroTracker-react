@@ -88,7 +88,8 @@ app.route("/food")
             fats: fats, 
             proteins: proteins, 
             user: currentUser,
-            date: currentDate
+            date: currentDate,
+            amount: 1
         });
 
         const prevFood = new PrevFood({
@@ -98,7 +99,8 @@ app.route("/food")
             fats: fats, 
             proteins: proteins, 
             user: currentUser,
-            date: currentDate
+            date: currentDate,
+            amount: 1
         });
 
         try {
@@ -144,7 +146,8 @@ app.post("/add-from-previous", (req, res) => {
         fats: fats, 
         proteins: proteins, 
         user: currentUser,
-        date: currentDate
+        date: currentDate,
+        amount: 1
     });
 
     try {
@@ -158,14 +161,23 @@ app.post("/add-from-previous", (req, res) => {
 async function getCals() {
     let totCalories = 0, totCarbs = 0, totFats = 0, totProteins = 0;
     let foods = await Food.find({user: currentUser});
-    foods.forEach((food) => {
-        totCalories += food.calories
-        totCarbs += food.carbs
-        totFats += food.fats
-        totProteins += food.proteins
+    foods.forEach((food) => { 
+        // while looping multiply each by the qty
+        totCalories += food.calories * food.amount
+        totCarbs += food.carbs * food.amount
+        totFats += food.fats * food.amount
+        totProteins += food.proteins * food.amount
     })
     return {totCalories, totCarbs, totFats, totProteins}
 }
+
+app.post("/update-amnt", (req, res) => {
+    const amount = req.body.amount;
+    const id = req.body.id
+    Food.findByIdAndUpdate(id, {amount: amount}).then((err) => {
+        res.send("updated")
+    })
+})
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"))

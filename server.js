@@ -207,7 +207,6 @@ app.post("/groupFood", async (req, res) => {
         amount: 1
     }
 
-    // redirect to page and have user confirm new name as well as amounts then save new food in different route.
     res.send(approveNewFood)
 })
 

@@ -115,15 +115,12 @@ function PrevFoods() {
 
         let created = {
             name: data.target.foodName.value,
-            calories: data.target.calories.value,
             carbs: data.target.carbs.value,
             fats: data.target.fats.value,
             proteins: data.target.proteins.value
         }
-        console.log(created)
-        // submit to server to have food created make sure amount is added to 1
-        document.getElementById("popup-window").style.display = "none";
-
+        foodService.addFood(created)
+        window.location = "/foods"
     }
 
     return (

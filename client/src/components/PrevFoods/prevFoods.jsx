@@ -16,6 +16,8 @@ function PrevFoods() {
 
     const [prevFoods, setPrevFoods] = useState([]);
 
+    const [finalNewFood, setfinalNewFood] = useState([]);
+
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -68,19 +70,57 @@ function PrevFoods() {
         let cont = document.getElementsByName("container")
         let btn = document.getElementsByName("delete-btn");
         let addBtn = document.getElementsByName("add-btn")
+        let newBtn = document.getElementsByName("newFood-btn");
         for (let num = 0; num < cont.length; num++) {
             if (cont[num].id === data) {
                 if (cont[num].style.border !== "1px solid yellow") {
                     cont[num].style.border = "1px solid yellow";
                     btn[num].style.display = "inline-block"
                     addBtn[num].style.display = "inline-block"
+                    newBtn[num].style.display = "inline-block"
                 } else {
                     cont[num].style.border = "1px solid black";
                     btn[num].style.display = "none"
                     addBtn[num].style.display = "none"
+                    newBtn[num].style.display = "none"
                  }
             }
         }
+    }
+
+    const newFood = async () => {
+        let newFoods = [];
+        // loop gathers every id of each box selected
+        const cont = document.getElementsByName("container");
+        for (let num = 0; num < cont.length; num ++) {
+            if (cont[num].style.border === "1px solid yellow"){
+                newFoods.push(cont[num].id);
+            }
+
+        }
+
+        let data = {
+            id: newFoods
+        }
+        // sent to server and all the totals are add up and sent back
+        let generatedFood = await foodService.groupFood(data);
+        setfinalNewFood(generatedFood.data);
+        document.getElementById("popup-window").style.display = "block";
+
+
+    }
+
+    const submitNewFood = async data => {
+        data.preventDefault();
+
+        let created = {
+            name: data.target.foodName.value,
+            carbs: data.target.carbs.value,
+            fats: data.target.fats.value,
+            proteins: data.target.proteins.value
+        }
+        foodService.addFood(created)
+        window.location = "/foods"
     }
 
     return (
@@ -106,6 +146,7 @@ function PrevFoods() {
                         <div className="button-form">
                             <button onClick={() => addFood(food.name, food.carbs, food.fats, food.proteins)} name="add-btn" className="add-btn btn btn-outline-success">Add</button>
                             <button onClick={() => deleteFood(food._id)} name="delete-btn" className="delete-btn btn btn-outline-danger">Delete</button>
+                            <button onClick={() => newFood()} name="newFood-btn" className="newFood-btn btn btn-outline-success">New Food</button>
                         </div>
                     </div>
                 )
@@ -113,8 +154,18 @@ function PrevFoods() {
             <div id="success-message" className="animate__animated">
                 <h4>Added food</h4>
             </div>
-            <div className="prev-foods-footer">
-                <h1>Previous Foods</h1>
+
+            {/* popup div */}
+            <div id="popup-window">
+                {/* make an x button that on click hides the window */}
+                <form onSubmit={submitNewFood}>
+                    <input name="foodName" type="text" placeholder="name"></input>
+                    <input name="calories" type="number" value={finalNewFood.calories}></input>
+                    <input name="carbs" type="number" value={finalNewFood.carbs}></input>
+                    <input name="fats" type="number" value={finalNewFood.fats}></input>
+                    <input name="proteins" type="number" value={finalNewFood.proteins}></input>
+                    <button type="submit">Save New Food</button>
+                </form>
             </div>
         </div>
     )

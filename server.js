@@ -179,6 +179,37 @@ app.post("/update-amnt", (req, res) => {
     })
 })
 
+app.post("/groupFood", async (req, res) => {
+    let newFoods = []
+    let currentDate = new Date();
+    const data = req.body.id;
+    for (let num = 0; num < data.length; num++) {
+        await PrevFood.findById(data[num]).then((foods) => {
+            newFoods.push(foods)
+        })
+    }
+    let totCalories = 0, totCarbs = 0, totFats = 0, totProteins = 0;
+    newFoods.forEach((food) => {
+        totCalories += food.calories
+        totCarbs += food.carbs
+        totFats += food.fats
+        totProteins += food.proteins
+    })
+
+    let approveNewFood = {
+        name: "",
+        calories: totCalories,
+        carbs: totCarbs,
+        fats: totFats,
+        proteins: totProteins,
+        user: currentUser,
+        date: currentDate,
+        amount: 1
+    }
+
+    res.send(approveNewFood)
+})
+
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"))
 })

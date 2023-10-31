@@ -26,25 +26,30 @@
     margin-left: 5px;
 }
 
+.newFood-btn {
+    display: none;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
 .add-btn {
     display: none;
     margin-top: 5px;
     margin-right: 5px;
 }
 
-.prev-foods-footer {
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0px;
-}
-
-.prev-foods-footer h1 {
-    color: white;
-}
-
 #success-message {
     display: none;
     text-align: center;
     color: white;
+}
+
+#popup-window {
+    position: absolute;
+    display: none;
+    top: 80px;
+    left: 2%;
+    width: 95%;
+    height: 400px;
+    background-color: gray;
 }
